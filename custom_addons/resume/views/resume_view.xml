@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record model="ir.ui.view" id="resume_id">
+        <field name="name">Resume</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='type_id']" position="after">
+                <field  name="education"/>
+            </xpath>
+
+            <xpath expr="//field[@name='education']" position="after">
+                <field  name="college"/>
+            </xpath>
+
+            <xpath expr="//field[@name='college']" position="after">
+                <field  name="experience"/>
+            </xpath>
+
+            <xpath expr="//field[@name='experience']" position="after">
+                <field  name="address"/>
+            </xpath>
+
+            <xpath expr="//field[@name='address']" position="after">
+                <field  name="resume1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='resume1']" position="after">
+                <button string="Fetch Resume Details" name="parse_resume" class="oe_highlight"  type="object" />
+            </xpath>
+
+            <xpath expr="//field[@name='source_id']" position="after">
+                <field  name="company"/>
+            </xpath>
+
+            <xpath expr="//field[@name='company']" position="after">
+                <field  name="designation"/>
+            </xpath>
+
+            <xpath expr="//field[@name='designation']" position="after">
+                <field  name="skills"/>
+            </xpath>
+
+            <xpath expr="//field[@name='resume1']" position="after">
+                <field name="resume" filename="file_name" />
+                <field name="file_name" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="resume_parse_id" model="ir.actions.act_window">
+        <field name="name">Resume</field>
+        <field name="res_model">hr.applicant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="person_menu" name="Resume Parser Rishabh" action="test_action"/>
+
+
+</odoo>
+
+
+<!--<odoo>-->
+<!--    <record model="ir.ui.view" id="resume_id">-->
+<!--        <field name="name">Resume</field>-->
+<!--        <field name="model">hr.applicant</field>-->
+<!--        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />-->
+<!--        <field name="type">form</field>-->
+<!--        -->
+<!--        <field name="arch" type="xml">-->
+<!--           <xpath expr="//field[@name='attachment']" position="after">-->
+<!--                <label for="resume"/>-->
+<!--                <div class="o_row">-->
+<!--                    <field name="resume" filename="file_name"/>-->
+<!--                    <button name="parse_resume" type="object" string="Parse Resume" class="btn btn-small btn-primary"/>-->
+<!--                </div>-->
+<!--                <field name="file_name" invisible="1"/>-->
+<!--                <field name="company"/>-->
+<!--                <field name="designation"/>-->
+<!--                <field name="address"/>-->
+<!--                <field name="experience"/>-->
+<!--                <field name="college"/>-->
+<!--                <field name="education"/>-->
+<!--                <field name="skills"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash;  creating Actions&ndash;&gt;-->
+<!--    <record id="resume_parse_id" model="ir.actions.act_window">-->
+<!--        <field name="name">Resume</field>-->
+<!--        <field name="res_model">hr.applicant</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--</odoo>-->
+
+

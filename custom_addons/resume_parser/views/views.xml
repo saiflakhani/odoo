@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_resume_parser_button" model="ir.ui.view">
+            <field name="name">BUTTON DEMO</field>
+            <field name="model">applicant.applicant</field>
+            <field name="arch" type="xml">
+                <form string="Button record">
+                    <header>
+                        <button string="Read Resume" type="object" name="import_resume_data" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <field name="resume_file" filename="resume_file_name"/>
+                        <field name="resume_file_name" invisible="1"/>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="mobile_number"/>
+                        <field name="skills"/>
+                        <field name="college_names"/>
+                        <field name="degree"/>
+                        <field name="experience"/>
+                        <field name="exp_years"/>
+                        <field name="company_names"/>
+                    </group>
+                </form>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="test_action">
+            <field name="name">Applicants</field>
+            <field name="res_model">applicant.applicant</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="resume_parser_menu" name="Resume Parser"/>
+        <menuitem id="person_menu" parent="resume_parser_menu" name="Person" action="test_action"/>
+        <!--    <menuitem id="button_menu" parent="resume_parser_menu" name="Button" action="view_buttons_form"/>-->
+    </data>
+</odoo>
